@@ -1,0 +1,360 @@
+@import url("https://fonts.googleapis.com/css2?family=Khula:wght@400;600;700&family=Public+Sans:wght@100;300;400;600&display=swap");
+
+
+.light {
+  transition: 1s;
+  /* --background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0.1) 100%
+  ); */
+  --background: #ffffff;
+  --lyric-color: #333; /* Color for light mode */
+}
+.dark {
+  transition: 1s;
+  --background: #121212;
+  --lyric-color: #bababa; /* Color for dark mode */
+}
+a {
+  color: #7a92fe;
+}
+a:hover {
+  color: #fff;
+}
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+}
+
+.control-panel-container {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0);
+  left: 50px;
+  height: 740px;
+  width: 360px;
+  border-radius: 25px;
+  z-index: 10;
+}
+
+
+.phone {
+  position: relative;
+  background-color: var(--background);
+  height: 740px;
+  width: 1000px;
+  border-radius: 25px;
+  /* box-shadow: rgba(104, 139, 255, 0.1) 0px 48px 100px 0px,
+    rgba(17, 12, 46, 0.15) 0px 30px 100px 0px; */
+  box-shadow: 
+    rgba(197, 197, 197, 0.1) 0px 48px 120px 10px, /* Increased blur and spread */
+    rgba(149, 149, 149, 0.15) 0px 30px 120px 10px;  /* Increased blur and spread */
+}
+#top-menu {
+  position: relative;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5%;
+  margin-top: 10%;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.1rem;
+  color: #abb3c7;
+}
+#top-menu i {
+  font-size: 1rem;
+}
+
+.song-thumbnail {
+  background-image: url("https://images.unsplash.com/photo-1557672172-298e090bd0f1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80s");
+  background-size: cover;
+  background-position: center center;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+.thumbnail-border {
+  height: 200px;
+  width: 200px;
+  margin: 20% auto 0 auto;
+  border-radius: 50%;
+  padding: 0.4rem;
+  box-shadow: inset 6px 6px 20px 0 rgba(104, 139, 255, 0.2),
+    rgba(104, 139, 255, 0.1) 0px 4px 20px, rgba(104, 139, 255, 0.1) 0px 8px 24px,
+    rgba(102, 111, 128, 0.4) 0px 16px 45px;
+}
+.button {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: inset 3px 2px 5px 0 rgba(255, 255, 255, 0.5),
+    rgba(104, 139, 255, 0.1) 7px 3px 10px, rgba(0, 0, 0, 0.1) 7px 5px 10px;
+}
+.button:hover {
+  box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2);
+  background-color: #779bff;
+  color: #fff;
+}
+#mode {
+  background-color: var(--background);
+  border: none;
+  color: #6b728d;
+}
+#song-details {
+  position: absolute;
+  top: 60%; /* Adjust this value to move #song-details down */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for exact centering */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.song-title {
+  font-size: 1.4rem;
+  color: #abb3c7;
+}
+.artist {
+  font-size: 0.8rem;
+  color: #abb3c7;
+}
+#time-slider {
+  margin-top: 40%; /* Increase the percentage to move it further down */
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.slider-times {
+  font-size: 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  color: #abb3c7;
+}
+input[type="range"]::-moz-range-progress {
+  background-color: #779bff;
+}
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 5px;
+  background: transparent;
+  outline: none;
+  box-shadow: inset 2px 2px 2px 0 rgba(104, 139, 255, 0.2),
+    inset 3px 3px 2px 0 rgba(50, 50, 50, 0.1),
+    inset -45px -45px 1px 0 rgba(255, 255, 255, 0.1),
+    inset -1px -1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  outline: none;
+  border-radius: 50%;
+  border: none;
+  background: radial-gradient(
+    circle at center,
+    #779bff 0,
+    #6381f9 20%,
+    #d2e1f8 30%,
+    #d2e1f8 70%,
+    #fff 100%
+  );
+  box-shadow: inset 2px 2px 2px 0 rgba(104, 139, 255, 0.1),
+    rgba(0, 0, 0, 0.1) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.1) 0px 12px 20px;
+}
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  background: radial-gradient(
+    circle at center,
+    #779bff 0,
+    #6381f9 20%,
+    #d2e1f8 30%,
+    #d2e1f8 50%,
+    #fff 100%
+  );
+  box-shadow: inset 2px 2px 2px 0 rgba(104, 139, 255, 0.1),
+    rgba(0, 0, 0, 0.1) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.1) 0px 12px 20px;
+}
+#song-controls {
+  width: 60%;
+  margin-top: 10%; /* Increase the percentage to move it further down */
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  color: #abb3c7;
+}
+#song-controls .button {
+  height: 65px;
+  width: 65px;
+}
+
+/* -------------------------------------------------------------------- */
+
+.container.lyrics-container {
+  max-height: 740px; /* Set the maximum height to match the phone's height */
+  overflow-y: auto; /* Enable vertical scrolling if the content exceeds the height */
+  position: absolute;
+  height: 740px;
+  width: 500px;
+  left: 700px; 
+  z-index: 5;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Style for each lyric line */
+.lrc-list li {
+  padding: 5px 10px; /* Spacing inside each list item */
+  margin: 10px 0; /* This sets a 10px margin above and below each list item */
+  color: var(--lyric-color); /* Default color */  
+  font-size: 16px; /* Font size */
+  line-height: 1.6; /* Line height */
+  list-style-type: none; /* Remove default list styling */
+  transform-origin: center left; /* Set the scaling origin to the center */
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+
+}
+
+.lrc-list li:hover {
+  /* Style for hover effect */
+  cursor: pointer; /* Change cursor to indicate clickable */
+  color: #a92828; /* Change text color if needed */
+  transform: scale(1.2); /* Enlarge the text */
+  font-weight: bold; /* Make text bolder */
+  transition: transform 0.3s ease; /* Smooth transition for scaling and font-weight */
+}
+
+
+/* Style for the active (currently playing) lyric line */
+.lrc-list li.active {
+  color: #b4b0b0; /* Red color for the active line */
+  font-weight: bold;
+  transform: scale(1.2);
+}
+
+/*---------------------------- modal popup---------------- */
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.bars-button {
+  position: fixed; /* or absolute, depending on your layout */
+  z-index: 1100; /* A high value to ensure it's on top of other elements */
+  /* Set the top and left properties to position the button */
+  top: 36px; /* Adjust as needed */
+  left: 67.5px; /* Adjust as needed */
+}
+
+.bars-button i {
+  font-size: 16px; /* Adjust the size as needed */
+}
+
+.modal-box {
+  position: fixed;
+  top: 30px; /* Adjust to move down */
+  left: 60px; /* Adjust to move left */
+  z-index: 1000; /* High z-index to ensure it's on top */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Align items (text and icons) in the center */
+  justify-content: center; /* Center the content vertically */
+  padding: 20px; /* Add padding inside the modal for spacing */
+
+  width: 100%; /* Adjust width as needed */
+  max-width: 700px; /* Adjust maximum width as needed */
+  height: 100%; /* Adjust height as needed, or set a specific value */
+  max-height: 650px; /* Adjust maximum height as needed */
+  border-radius: 24px;
+  /* background-color: rgba(102, 111, 128, 1); */
+  background: url('/assets/images/forest1.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Public Sans", sans-serif;
+}
+
+.wrapper {
+  width: 420px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  border-radius: 10px;
+  padding: 30px 40px;
+}
+
+.wrapper h1 {
+  font-size: 36px;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.wrapper .input-box {
+  width: 100%;
+  height: 50px;
+  margin: 30px 0;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
+  font-size: 16px;
+  color: #fff;
+  padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+  color: white;
+}
+
+.wrapper .btn {
+  width: 100%;
+  height: 45px;
+  background: #fff;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 20px;
+  color: #333;
+  font-weight: bolder;
+  margin: 0 0 15px;
+}

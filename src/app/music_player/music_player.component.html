@@ -1,0 +1,102 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+/>
+<div class="container" [ngClass]="{ dark: isDarkMode, light: !isDarkMode }">
+  <!-- popup modal -->
+  <span class="overlay"></span>
+
+  <div class="modal-box" *ngIf="showModal">
+    <div class="button bars-button" (click)="toggleModal()">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="wrapper">
+      <form action="">
+        <h1>Search Book</h1>
+        <div class="input-box">
+          <input type="text" placeholder="Book url" required>
+        </div>
+    
+        <button type="submit" class="btn">Submit</button>
+      </form>
+
+    </div>
+  </div>
+
+  <div class="control-panel-container">
+    <div id="top-menu">
+      <div class="button" (click)="toggleModal()">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <button id="mode" class="button" (click)="toggleDarkMode()">
+        <i class="bi bi-brightness-high-fill" id="toggleDark"></i>
+      </button>
+    </div>
+
+    <div class="thumbnail-border">
+      <div class="song-thumbnail"></div>
+    </div>
+
+    <!-- Hidden Audio Element -->
+    <audio #audioElement [src]="audioSource" hidden></audio>
+
+    <div id="song-details">
+      <h1 class="song-title">绝不放弃</h1>
+      <span class="artist">第五十六章 </span>
+    </div>
+
+    <div id="time-slider">
+      <div class="slider-times">
+        <span>{{ formatTime(currentTime) }}</span>
+        <span class="slider-end">{{ formatTime(duration) }}</span>
+      </div>
+      <input
+        type="range"
+        [min]="0"
+        [max]="duration"
+        [(ngModel)]="currentTime"
+        (change)="seekAudio()"
+        class="slider"
+        id="myRange"
+      />
+    </div>
+
+    <div id="song-controls">
+      <div class="button">
+        <i class="fas fa-backward"></i>
+      </div>
+      <div class="button" (click)="togglePlayPause()">
+        <i
+          class="fas"
+          [class.fa-pause]="isPlaying"
+          [class.fa-play]="!isPlaying"
+        ></i>
+      </div>
+      <div class="button">
+        <i class="fas fa-forward"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="phone"></div>
+  <div class="container lyrics-container">
+    <ul class="lrc-list">
+      <li
+        *ngFor="let line of lrcData; let i = index"
+        [class.active]="i === currentLineIndex"
+        (click)="skipTo(line.time)"
+      >
+        {{ line.words }}
+      </li>
+    </ul>
+  </div>
+</div>

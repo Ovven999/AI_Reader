@@ -1,0 +1,46 @@
+<mat-card>
+  <form>
+    <mat-form-field>
+      <input matInput placeholder="Book url" #bookUrl />
+    </mat-form-field>
+    <button mat-raised-button color="accent" (click)="loadBook(bookUrl)">
+      Search
+    </button>
+  </form>
+</mat-card>
+
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header class="sticky-panel-header">
+      <mat-panel-title> Chapters </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <!-- Container for Chapter Buttons with Scrolling -->
+    <div class="chapter-container">
+      <div *ngFor="let group of groupedChapterLinks" class="chapter-row">
+        <button
+          mat-button
+          *ngFor="let chapter of group"
+          (click)="onChapterSelect(chapter)"
+        >
+          {{ chapter.name }}
+        </button>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<audio id="audio" #audioElement controls (timeupdate)="setOffset()">
+  <source *ngIf="audioUrl" [src]="audioUrl" type="audio/mpeg" />
+</audio>
+<div class="container lyrics-container">
+  <ul class="lrc-list">
+    <li
+      *ngFor="let line of lrcData; let i = index"
+      [class.active]="i === currentLineIndex"
+      (click)="skipTo(line.time)"
+    >
+      {{ line.words }}
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,110 @@
+/* Container for the lyrics list */
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column; /* Stack elements vertically */
+  gap: 10px; /* Space between input and button */
+  /* Additional padding as needed */
+}
+
+
+mat-form-field {
+  width: 80%;
+  margin: 20px; /* This adds space outside the form field and button, adjust value as needed */
+}
+
+
+mat-card {
+  border-radius: 16px; /* This will create rounded corners; adjust the px value as needed */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Example drop shadow from previous instruction */
+  transition: 0.3s; /* Optional: adds a transition effect when hovering */
+  margin-bottom: 20px;
+}
+
+mat-card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); /* Larger shadow on hover for a nice effect */
+}
+
+
+/* ----------------------------------------------------------- */
+
+.chapter-row {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px; /* Adjust as needed */
+}
+
+.chapter-row button {
+  flex: 1 1 30%; /* Adjust the flex-basis as needed */
+  margin: 0 5px; /* Space between buttons */
+}
+
+.sticky-panel-header {
+  padding: 15px; /* Increase padding for a thicker header */
+  background: white; /* Or any other background to ensure text readability */
+}
+
+.chapter-container {
+  max-height: calc(10 * 44px); /* Assuming each row is 44px high, adjust as needed */
+  overflow-y: auto; /* Adds a vertical scrollbar */
+}
+
+/* ----------------------------------------------------------- */
+
+/* Style for the audio player */
+audio {
+  width: 100%; /* Full width */
+  margin-top: 30px; /* Spacing above the audio player */
+  margin-bottom: 20px; /* Spacing below the audio player */
+}
+
+.container {
+  width: 100%; /* Full width */
+  max-height: 80vh; /* Adjust height as needed */
+  overflow-y: auto; /* Enable scrolling */
+  background: rgba(
+    249,
+    249,
+    249,
+    0.592
+  ); /* Background color with transparency */
+  margin: 20px auto; /* Top and bottom margin 20px, left and right auto */
+  padding: 10px; /* Padding inside the container */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+  scroll-behavior: smooth; /* This makes the scroll action smoother */
+  transition: scroll 0.3s ease;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Style for each lyric line */
+.lrc-list li {
+  padding: 5px 10px; /* Spacing inside each list item */
+  border-bottom: 1px solid #eee; /* Separator between items */
+  color: #333; /* Text color */
+  font-size: 16px; /* Font size */
+  line-height: 1.6; /* Line height */
+  list-style-type: none; /* Remove default list styling */
+  transform-origin: center left; /* Set the scaling origin to the center */
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+
+}
+
+.lrc-list li:hover {
+  /* Style for hover effect */
+  background-color: #f0f0f0; /* Example: light grey background */
+  cursor: pointer; /* Change cursor to indicate clickable */
+  color: #333; /* Change text color */
+  /* Add more styling as needed */
+}
+
+/* Style for the active (currently playing) lyric line */
+.lrc-list li.active {
+  color: #6e0000; /* Red color for the active line */
+  font-weight: bold;
+  transform: scale(1.2);
+}
