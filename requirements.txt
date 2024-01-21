@@ -1,0 +1,4 @@
+simpleaudio
+pygetwindow 
+pyautogui
+mss
