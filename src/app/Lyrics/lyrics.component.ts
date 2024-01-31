@@ -153,7 +153,7 @@ export class LyricsPlayerComponent implements AfterViewInit{
               // Handle audio file here
               this.audioUrl = window.URL.createObjectURL(audioBlob);
               // console.log("audioUrl: " + this.audioUrl);
-              
+              this.audio.load()
             });
           } else {
             console.error('chapter_audio.mp3 not found in the zip file');

@@ -1,0 +1,27 @@
+.light {
+    transition: 1s;
+    /* --background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.6) 50%,
+      rgba(255, 255, 255, 0.1) 100%
+    ); */
+    --background: #c9fcff;
+    --lyric-color: #333; /* Color for light mode */
+  }
+  .dark {
+    transition: 1s;
+    --background: #121212;
+    --lyric-color: #bababa; /* Color for dark mode */
+  }
+
+div {
+  position: absolute;
+  top: 50%;
+  right: -8%;
+  transform: translate(-50%, -50%);
+  height: 740px;
+  width: 400px;
+  border-radius: 25px;
+  background: var(--background);
+}

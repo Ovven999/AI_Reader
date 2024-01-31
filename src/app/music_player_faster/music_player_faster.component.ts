@@ -17,6 +17,7 @@ import {
 } from '@angular/forms';
 
 import JSZip from 'jszip';
+import { AudioQueue } from '../helper/AudioQueue';
 
 interface Chapter {
   name: string;
@@ -24,11 +25,11 @@ interface Chapter {
 }
 
 @Component({
-  selector: 'app-music-player',
-  templateUrl: './music_player.component.html',
-  styleUrls: ['./music_player.component.css'],
+  selector: 'app-music-player-faster',
+  templateUrl: './music_player_faster.component.html',
+  styleUrls: ['./music_player_faster.component.css'],
 })
-export class MusicPlayerComponent implements OnInit {
+export class MusicPlayerFasterComponent implements OnInit {
   showContextMenu = false;
   menuPosition = { x: '0px', y: '0px' };
   isDarkMode: boolean = false;
@@ -40,6 +41,7 @@ export class MusicPlayerComponent implements OnInit {
   currentTime: number = 0; // Current time in seconds
   currentLine = 0;
   duration: number = 0; // Total duration in seconds
+  queue = new AudioQueue<Blob>(3);
 
   current_chapter: string = '牢底 什么实力';
   chapterContent: string;

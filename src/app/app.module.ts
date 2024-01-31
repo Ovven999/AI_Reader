@@ -13,16 +13,24 @@ import { LyricsPlayerComponent } from './Lyrics/lyrics.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import {MusicPlayerComponent} from './music_player/music_player.component'
+import { AppRountingModule } from './app-routing.module';
+import { MusicPlayerPhoneComponent } from './music_player_phone/music_player_phone.component';
+import { ArtBoardComponent } from './art-board/art-board.component';
+import { MusicPlayerFasterComponent } from './music_player_faster/music_player_faster.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LyricsPlayerComponent,
     HeaderComponent,
-    MusicPlayerComponent
+    MusicPlayerComponent,
+    MusicPlayerPhoneComponent,
+    ArtBoardComponent,
+    MusicPlayerFasterComponent
   ],
   imports: [
     BrowserModule,
+    AppRountingModule,
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,

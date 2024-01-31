@@ -7,6 +7,9 @@ body {
 }
 /* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
 body {
+  background: url('/assets/images/forest2.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
   background-color: #4f4f4f;
   font-family: "Public Sans", sans-serif;
   color: #000000;
